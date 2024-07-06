@@ -1,7 +1,7 @@
 http:
  #region routers 
   routers:
-  
+
     proxmox:
       entryPoints:
         - "https"
@@ -21,6 +21,16 @@ http:
         - https-redirectscheme
       tls: {}
       service: pihole
+
+    wg-easy:
+      entryPoints:
+        - "https"
+      rule: "Host(`wg.local.jhomelab.net`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: wg-easy
 
     jellyfin:
       entryPoints:
@@ -44,11 +54,18 @@ http:
           - url: "https://10.5.15.200:8006"
         passHostHeader: true
 
+    wg-easy:
+      loadBalancer:
+        servers:
+          - url: "http://10.5.15.210:51821"
+        passHostHeader: true
+
     pihole:
       loadBalancer:
         servers:
           - url: "http://10.5.15.150:180"
         passHostHeader: true
+
 
     jellyfin:
       loadBalancer:
