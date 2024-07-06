@@ -1,0 +1,12 @@
+- name: add hardened SSH config (non-proxmox hosts)
+  tags: security
+  template:
+    dest: /etc/ssh/sshd_config
+    src: sshd_config.j2
+    owner: root
+    group: root
+    mode: 0600
+    backup: yes
+  when: ansible_facts['distribution'] == "Ubuntu"
+  notify: Reload SSH
+

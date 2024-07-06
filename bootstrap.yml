@@ -1,0 +1,29 @@
+---
+# You may need to add ssh key using ssh-copy-id before connecting
+
+- hosts: localhost
+  gather_facts: no
+  vars_prompt:
+  - name: target_host
+    prompt: please enter the target hostname as indicated in inventory file
+    private: no
+  tasks:
+    - add_host:
+        name: "{{ target_host }}"
+        groups: dynamically_created_hosts
+
+- hosts: dynamically_created_hosts
+  become: true
+  pre_tasks:
+
+  - name: update repositories
+    become: true
+    apt:
+      update_cache: yes
+      upgrade: yes
+
+  roles:
+    - role: base_server
+    - role: basic_hardening
+
+  

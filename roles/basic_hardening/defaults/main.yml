@@ -1,0 +1,2 @@
+# Allowed ssh logins
+ssh_users: "robot_overlord mitchell"

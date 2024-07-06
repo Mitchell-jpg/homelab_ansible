@@ -1,0 +1,13 @@
+- name: create jellyfin directory
+  become: true
+  file:
+    dest: /jellyfin
+    state: directory
+
+- name: place docker-compose file
+  copy:
+    src: docker-compose.yaml
+    dest: /jellyfin/docker-compose.yaml
+    owner: root
+    group: root
+    mode: 0644.

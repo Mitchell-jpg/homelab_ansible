@@ -1,0 +1,46 @@
+- name:  make a share folder
+  become: true
+  file:
+    dest: /share
+    state: directory
+    mode: 777
+
+- name: Create data directory
+  file:
+    dest: /share/data
+    state: directory
+
+- name: Create torrents directory
+  file:
+    dest: /share/data/torrents
+    state: directory
+
+- name: Create movies directory
+  file:
+    dest: /share/data/torrents/movies
+    state: directory
+
+- name: Create tv directory
+  file:
+    dest: /share/data/torrents/tv
+    state: directory
+
+- name: Create media directory
+  file:
+    dest: /share/data/media
+    state: directory
+
+- name: Create movies directory
+  file:
+    dest: /share/data/media/movies
+    state: directory
+
+- name: Create tv directory
+  file:
+    dest: /share/data/media/tv
+    state: directory
+
+- name: create server folder
+  file:
+    dest: /server
+    state: directory

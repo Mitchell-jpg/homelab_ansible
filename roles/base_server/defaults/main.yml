@@ -1,0 +1,14 @@
+
+# Ansible service account name
+ansible_username: robot_overlord
+
+# Admin Username
+username: mitchell
+
+# packages to Install
+packages:
+  - sudo
+  - neofetch
+  - tree
+
+  

@@ -1,0 +1,16 @@
+[metal_servers]
+zeus ansible_host=192.168.100.100
+
+[hypervisors]
+pve1 ansible_host=10.5.15.100 
+pve2 ansible_host=10.5.15.200
+pve3 ansible_host=10.5.15.250
+
+[docker_containers]
+docker_server01 ansible_host=10.5.15.150
+docker_server02 ansible_host=10.5.15.210
+jellyfin ansible_host=10.5.15.80
+nas ansible_host=10.5.15.70
+
+
+

@@ -1,0 +1,9 @@
+---
+
+- name: Install nice to have packages
+  tags: packages
+  apt:
+    name: "{{ packages }}"
+    state: latest
+
+- include_tasks: add_users.yml
