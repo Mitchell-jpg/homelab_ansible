@@ -1,0 +1,11 @@
+---
+
+services:
+
+  vaultwarden:
+    container_name: vaultwarden
+    image: vaultwarden/server:latest
+    volumes:
+      - '/home/mitchell/server/vaultwarden/data/:/data/'
+    ports:
+      - 280:80

@@ -12,6 +12,17 @@ http:
       tls: {}
       service: proxmox
 
+    vaultwarden:
+      entryPoints:
+        - "https"
+      rule: "Host(`vw.local.jhomelab.net`)"
+      middlewares:
+        - default-headers
+        - https-redirectscheme
+      tls: {}
+      service: vaultwarden
+
+
     pihole:
       entryPoints:
         - "https"
@@ -48,6 +59,12 @@ http:
       loadBalancer:
         servers:
           - url: "http://10.5.15.150:180"
+        passHostHeader: true
+
+    vaultwarden:
+      loadBalancer:
+        servers:
+          - url: "http://10.5.15.150:280"
         passHostHeader: true
 
     jellyfin:

@@ -18,8 +18,8 @@
   become: true
 
   roles:
-    - role: base_server
-    - role: basic_hardening
+   # - role: base_server
+   # - role: basic_hardening
 
 - hosts: docker_containers
   become: true
@@ -31,6 +31,7 @@
   become: true
   roles: 
     - role: pihole
+    - role: vaultwarden
 
 - hosts: docker_server02
   become: true

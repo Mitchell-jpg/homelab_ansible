@@ -12,5 +12,8 @@ docker_server02 ansible_host=10.5.15.210
 jellyfin ansible_host=10.5.15.80
 nas ansible_host=10.5.15.70
 
+[virtual_machines]
+windows_server ansible_host= 10.5.15.50
+
 
 
